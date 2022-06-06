@@ -7,3 +7,12 @@
     text-align: center;
 }
 
+.card-img-top {
+    max-height: 175px;
+    object-fit: contain;
+}
+
+
+.btn {
+    /* want to center button */
+}
