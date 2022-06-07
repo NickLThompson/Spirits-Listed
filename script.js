@@ -1,5 +1,17 @@
 // www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}
+
 $(document).ready(function () {
+
+var buttonEl = $('.btn');
+
+var ingredient = [];
+
+
+
+
+
+
+
 
     var buttonEl = $('.btn');
 
