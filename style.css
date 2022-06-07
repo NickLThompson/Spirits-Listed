@@ -1,3 +1,18 @@
+header {
+    text-align: center;
+    color:burlywood;
+    background-color:rgb(99, 0, 0);
+    padding: 20px;
+    background-blend-mode: color-burn;
+}
+
+body {
+    background-image: url(ProjectImages/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
 .card {
     padding: 4px;
     margin: 4px;
@@ -13,6 +28,3 @@
 }
 
 
-/* .btn {
-    center button
-} */
