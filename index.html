@@ -29,7 +29,7 @@
             <!-- left side of page -->
             <section class="col-md-2"></section>
             <!-- center of page -->
-            <section class="col-md-8">
+            <section class="col-md-8" id = "options">
 
                     <div class="row my-4 gy-4">
 
@@ -37,45 +37,13 @@
 
                             <div class="card h-100">
 
-                                <input type="checkbox" class = "checkbox" id="lemon-juice" name="lemon-juice" value="lemon-juice">
-
-                                <img class="card-img-top" src="ProjectImages/lemon-juice.png" alt="Lemon Juice">
+                                <img class="card-img-top" src="ProjectImages/lemon-juice.png" alt="Whiskey">
 
                                 <div class="card-body mx-auto">
 
-                                    <h5 class="card-title">Lemon Juice</h5>
+                                    <h5 class="card-title">Whiskey</h5>
 
-
-                                    <button type="button" class="btn btn-dark">More Info</button>
-
-                                </div>
-
-                                <button type="button" class="btn btn-dark">Search</button>
-
-
-                            </div>
-
-                        </div>
-
-                        <div class="col-lg-6 col-xl-3">
-
-                            <div class="card h-100">
-
-                                <input type="checkbox" class = "checkbox" id="lime-juice" name="lime-juice" value="lime-juice">
-
-                                <img class="card-img-top" src="ProjectImages/lime-juice.png" alt="Lime Juice">
-
-
-                                <div class="card-body mx-auto">
-
-                            <input type="checkbox" id="lime-juice" name="lime-juice" value="lime-juice">
-
-                            <img class="card-img-top" src="ProjectImages/lime-juice.png" alt="Lime Juice">
-
-
-                                    <h5 class="card-title">Lime Juice</h5>
-
-                                    <button type="button" class="btn btn-info"> More Info</button>
+                                    <button type="button" class="btn btn-dark" id="whiskey" data-value="whiskey">Search</button>
 
                                 </div>
 
@@ -87,20 +55,13 @@
 
                             <div class="card h-100">
 
-                                <input type="checkbox" class = "checkbox" id="bitters" name="bitters" value="bitters">
-
-                                <img class="card-img-top" src="ProjectImages/bitters.png" alt="Bitters">
+                                <img class="card-img-top" src="ProjectImages/lime-juice.png" alt="Brandy">
 
                                 <div class="card-body mx-auto">
 
-                            <input type="checkbox" id="bitters" name="bitters" value="bitters">
+                                    <h5 class="card-title">Brandy</h5>
 
-                            <img class="card-img-top" src="ProjectImages/bitters.png" alt="Bitters">
-
-
-                                    <h5 class="card-title">Bitters</h5>
-
-                                    <button type="button" class="btn btn-info">More Info</button>
+                                    <button type="button" class="btn btn-info" id="brandy" data-value="brandy"> Search</button>
 
                                 </div>
 
@@ -112,21 +73,13 @@
 
                             <div class="card h-100">
 
-                                <input type="checkbox" class = "checkbox" id="simple-syrup" name="simple-syrup" value="simple-syrup">
-
-                                <img class="card-img-top" src="ProjectImages/syrup.png" alt="Simple Syrup">
-
+                                <img class="card-img-top" src="ProjectImages/bitters.png" alt="scotch">
 
                                 <div class="card-body mx-auto">
 
-                            <input type="checkbox" id="simple-syrup" name="simple-syrup" value="simple-syrup">
+                                    <h5 class="card-title">Scotch</h5>
 
-                            <img class="card-img-top" src="ProjectImages/syrup.png" alt="Simple Syrup">
-
-
-                                    <h5 class="card-title">Syrup</h5>
-
-                                    <button type="button" class="btn btn-info">More Info</button>
+                                    <button type="button" class="btn btn-info" id="scotch" data-value="scotch">Search</button>
 
                                 </div>
 
@@ -134,6 +87,25 @@
 
                         </div>
 
+                        <div class="col-lg-6 col-xl-3">
+
+                            <div class="card h-100">
+
+                                <img class="card-img-top" src="ProjectImages/syrup.png" alt="Bourbon">
+
+                                <div class="card-body mx-auto">
+
+                                    <h5 class="card-title">Bourbon</h5>
+
+                                    <button type="button" class="btn btn-info" id="bourbon" data-value="bourbon">Search</button>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        
                     </div>
 
                     <div class="row my-4 gy-4">
@@ -142,21 +114,13 @@
 
                             <div class="card h-100">
 
-                                <input type="checkbox" class = "checkbox" id="vodka" name="vodka" value="vodka">
-
                                 <img class="card-img-top" src="ProjectImages/vodka.png" alt="Vodka">
 
-
                                 <div class="card-body mx-auto">
-
-                            <input type="checkbox" id="vodka" name="vodka" value="vodka">
-
-                            <img class="card-img-top" src="ProjectImages/vodka.png" alt="Vodka">
-
 
                                     <h5 class="card-title">Vodka</h5>
 
-                                    <button type="button" class="btn btn-info">More Info</button>
+                                    <button type="button" class="btn btn-info" id="vodka" data-value="vodka">Search</button>
 
                                 </div>
 
@@ -167,22 +131,14 @@
                         <div class="col-lg-6 col-xl-3">
 
                             <div class="card h-100">
-
-                                <input type="checkbox" class = "checkbox" id="tequila" name="tequila" value="tequila">
 
                                 <img class="card-img-top" src="ProjectImages/tequila.png" alt="Tequila">
 
-
                                 <div class="card-body mx-auto">
-
-                            <input type="checkbox" id="tequila" name="tequila" value="tequila">
-
-                            <img class="card-img-top" src="ProjectImages/tequila.png" alt="Tequila">
-
 
                                     <h5 class="card-title">Tequila</h5>
 
-                                    <button type="button" class="btn btn-info">More Info</button>
+                                    <button type="button" class="btn btn-info" id="tequila" data-value="tequila">Search</button>
 
                                 </div>
 
@@ -193,22 +149,14 @@
                         <div class="col-lg-6 col-xl-3">
 
                             <div class="card h-100">
-
-                                <input type="checkbox" class = "checkbox" id="rum" name="rum" value="rum">
 
                                 <img class="card-img-top" src="ProjectImages/rum.png" alt="Rum">
 
-
                                 <div class="card-body mx-auto">
-
-                            <input type="checkbox" id="rum" name="rum" value="rum">
-
-                            <img class="card-img-top" src="ProjectImages/rum.png" alt="Rum">
-
 
                                     <h5 class="card-title">Rum</h5>
 
-                                    <button type="button" class="btn btn-info">More Info</button>
+                                    <button type="button" class="btn btn-info" id="rum" data-value="rum">Search</button>
 
                                 </div>
 
@@ -220,31 +168,25 @@
 
                             <div class="card h-100">
 
-                                <input type="checkbox" class = "checkbox" id="gin" name="gin" value="gin">
-
-
                                 <img class="card-img-top" src="ProjectImages/gin.png" alt="Gin">
-
-                            <input type="checkbox" id="gin" name="gin" value="gin">
-
-                            <img class="card-img-top" src="ProjectImages/gin.png" alt="Gin">
-
 
                                 <div class="card-body mx-auto">
 
                                     <h5 class="card-title">Gin</h5>
 
-                                    <button type="button" class="btn btn-info">More Info</button>
+                                    <button type="button" class="btn btn-info" id="gin" data-value="gin">Search</button>
 
                                 </div>
 
                             </div>
 
                         </div>
+
+                    </div>
+                    
             </section>
             <!-- right side of page -->
             <section class="col-md-2">
-                <button id = "searchBtn">Search</button>
             </section>
 
         </div>
