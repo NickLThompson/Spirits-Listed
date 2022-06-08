@@ -1,4 +1,5 @@
 // www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}
+
 $(document).ready(function () {
 
     var buttonEl = $(".btn");
@@ -26,8 +27,8 @@ $(document).ready(function () {
         for (var i = 0; i < chosenIngredient.length; i++) {
             fetch(`www.thecocktaildb.com/api/json/v1/1/filter.php?i=${chosenIngredient[i]}`)
             .then(function (response) { 
-                return response.json();
                 console.log(response.json());
+                return response.json();
             })
             // return response.json();
         }
@@ -37,7 +38,7 @@ $(document).ready(function () {
     input.on("click", getSearchResults);
 
     buttonEl.on("click", function () {
-
+        console.log("I'm not doing anything yet");
     });
 
     searchBtnEl.on("click", fetchDrinks)
