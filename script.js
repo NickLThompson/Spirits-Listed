@@ -6,7 +6,7 @@ function switchPage(ingredient) {
 
 $(document).ready(function () {
 
-    
+    //redirects to new page with users chosen ingredient
     var handleClick = function () {
         var ingredient = $(this).data("value");
         switchPage(ingredient);
