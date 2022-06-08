@@ -34,13 +34,13 @@ $(document).ready(function () {
                         drinkImg.addClass('card-img-top');
 
                         var drinkBody = $('<div/>');
-                        drinkBody.addClass('card-body');
+                        drinkBody.addClass('card-body mx-auto d-grid gap-2');
 
                         var drinkTitle = $('<h2/>');
                         drinkTitle.text(drink.strDrink);
 
                         var ingredientsButton = $('<button/>');
-                        ingredientsButton.addClass('btn btn-info getIngredients');
+                        ingredientsButton.addClass('btn btn-dark mx-auto getIngredients');
                         ingredientsButton.text('Get Ingredients');
                         ingredientsButton.data('value',{id: drink.idDrink});
 
@@ -71,14 +71,33 @@ $(document).ready(function () {
 
     init();
 
+    function ingredientsApi(id, target){
+        //$(target).parent
+    }
+
     $('.drinkSection').on('click',function(element){
         if($(element.target).attr('class').includes('getIngredients')){
             var drinkId = $(element.target).data('value').id;
             console.log(drinkId);
-            // ingredientsApi(drinkId);
+            // ingredientsApi(drinkId,element.target);
         }
-        else if($(element.target).attr('class').includes('getdictionary')){
+        else if($(element.target).attr('class').includes('getDictionary')){
             // dictionaryApi(word);
         }
     })
 });
+
+
+
+
+// click event for home button
+var homeBtnEl = $('#homeBtn');
+homeBtnEl.on('click', function() {
+    location.replace(`./index.html`)
+});
+
+
+
+
+
+
