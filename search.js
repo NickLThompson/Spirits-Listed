@@ -19,7 +19,7 @@ var fetchDrinks = function () {
             return res.json();
         })
         .then(function ({ drinks }) {
-            console.log(drinks);
+          
             drinks.forEach(function (drink) {
 
                 // creating a container for the drinks
@@ -55,7 +55,7 @@ var fetchDrinks = function () {
 
                         drinkBody.append(titleDiv);
                         titleDiv.append(drinkTitle);
-                        var object = data.drinks[0]
+                        var object = data.drinks[0];
                         for (let i in object) {
 
                             // adds ingredients list
@@ -63,22 +63,32 @@ var fetchDrinks = function () {
 
                                 if (object[i] !== null) {
                                     if (i.includes('strIngredient')) {
-
-                                        var drinkIngredients = $('<p/>');
-                                        drinkIngredients.text(object[i]);
-                                        titleDiv.append(drinkIngredients);
-                                        
                                         var wordToDefine = object[i];
                                         wordsAPI(wordToDefine);
 
                                         function wordsAPI(wordToDefine) {
-                                            // sending indgrdients to be defined in dictionary 
-                                            fetch(`https://wordsapiv1.p.mashape.com/words/${wordToDefine}/definitions`)
-                                            .then(function(response) {
+                                            var drinkIngredients = $('<p/>');
+                                            drinkIngredients.text(wordToDefine);
+                                            titleDiv.append(drinkIngredients);
                                             
-                                                return response.json();
-                                                console.log(response.json());
+                                            // sending indgrdients to be defined in dictionary 
+                                            fetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + wordToDefine)
+                                            .then(function(response) {
+                                                if (response.status === 404) {
+                                                    throw Error("Not Found");
+                                                } else {
+                                                    return response.json();
+                                                }
+                                            }).then(function(result) {
+                                                var definition = result[0].meanings[0].definitions[0].definition;
+                                                if (definition) {
+                                                    drinkIngredients.attr("title", definition);
+                                                    drinkIngredients.css("text-decoration", "underline");
+                                                }
                                             })
+                                            .catch(function(err) {
+                                                console.log(err);
+                                            });
                                         }
                                     }
                                 }
