@@ -22,7 +22,7 @@ header {
     text-align: center;
 }
 
-.card-img-top {
-    max-height: 175px;
+.card-img-start {
+    max-height: 300px;
     object-fit: contain;
 }

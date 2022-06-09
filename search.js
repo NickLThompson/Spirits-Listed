@@ -22,42 +22,43 @@ var fetchDrinks = function () {
             console.log(drinks);
             drinks.forEach(function (drink) {
 
+                // creating a container for the drinks
                 var drinkContainer = $('<div/>');
-                drinkContainer.addClass('col-12');
+                drinkContainer.addClass('container col-12');
 
+                // creating a card for the drinks
                 var drinkCard = $('<div/>');
-                drinkCard.addClass('card');
+                drinkCard.addClass('row card');
 
+                // a place for the image of the drinks to sit in the container
+                var imgDiv = $('<div/>');
                 var drinkImg = $('<img/>');
                 drinkImg.attr('src', drink.strDrinkThumb);
                 drinkImg.attr('alt', drink.strDrink);
-                drinkImg.addClass('card-img-top');
+                drinkImg.addClass('col card-img-start');
 
-
+                // holds the drink info
                 var drinkBody = $('<div/>');
                 drinkBody.addClass('card-body mx-auto d-grid gap-2');
 
-
+                // drink title
+                var titleDiv = $('<div/>');
+                titleDiv.addClass('col mx-auto my-start')
                 var drinkTitle = $('<h2/>');
                 drinkTitle.text(drink.strDrink);
-
-                var ingredientsButton = $('<button/>');
-                ingredientsButton.addClass('btn btn-dark mx-auto getIngredients');
-                ingredientsButton.text('Get Ingredients');
-                ingredientsButton.data('value', { id: drink.idDrink });
-
-
+                
 
                 fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drink.idDrink}`)
                     .then(function (res) {
                         return res.json();
                     })
                     .then(function (data) {
-                        drinkBody.append(drinkTitle);
+                        drinkBody.append(titleDiv);
+                        titleDiv.append(drinkTitle);
                         var object = data.drinks[0]
                         for (let i in object) {
 
-
+                            // adds ingredients list
                             if (object.hasOwnProperty(i)) {
                                 //console.log(object[i])
                                 if (object[i] !== null) {
@@ -65,16 +66,36 @@ var fetchDrinks = function () {
                                         console.log(object[i])
                                         var drinkIngredients = $('<p/>');
                                         drinkIngredients.text(object[i]);
-                                        drinkBody.append(drinkIngredients);
+                                        titleDiv.append(drinkIngredients);
 
                                     }
                                 }
                             }
                         }
 
-                        // drinkBody.append(ingredientsButton);
+                        for (let i in object) {
 
-                        drinkCard.append(drinkImg);
+                            // adds measurements
+                            if (object.hasOwnProperty(i)) {
+                                //console.log(object[i])
+                                if (object[i] !== null) {
+                                    if (i.includes('strMeasure')) {
+                                        console.log(object[i])
+                                        var measureDiv = $('<div/>');
+                                        var drinkMeasure = $('<p/>');
+                                        drinkMeasure.text(object[i]);
+                                        measureDiv.append(drinkMeasure);
+                                        drinkBody.append(measureDiv);
+
+                                    }
+                                }
+                            }
+                        }
+
+                        measureDiv.append(object.strInstructions);
+
+                        drinkCard.append(imgDiv);
+                        imgDiv.append(drinkImg);
                         drinkCard.append(drinkBody);
 
                         drinkContainer.append(drinkCard);
