@@ -60,14 +60,26 @@ var fetchDrinks = function () {
 
                             // adds ingredients list
                             if (object.hasOwnProperty(i)) {
-                                //console.log(object[i])
+
                                 if (object[i] !== null) {
                                     if (i.includes('strIngredient')) {
-                                        console.log(object[i])
+
                                         var drinkIngredients = $('<p/>');
                                         drinkIngredients.text(object[i]);
                                         titleDiv.append(drinkIngredients);
+                                        
+                                        var wordToDefine = object[i];
+                                        wordsAPI(wordToDefine);
 
+                                        function wordsAPI(wordToDefine) {
+                                            // sending indgrdients to be defined in dictionary 
+                                            fetch(`https://wordsapiv1.p.mashape.com/words/${wordToDefine}/definitions`)
+                                            .then(function(response) {
+                                            
+                                                return response.json();
+                                                console.log(response.json());
+                                            })
+                                        }
                                     }
                                 }
                             }
@@ -77,10 +89,10 @@ var fetchDrinks = function () {
 
                             // adds measurements
                             if (object.hasOwnProperty(i)) {
-                                //console.log(object[i])
+
                                 if (object[i] !== null) {
                                     if (i.includes('strMeasure')) {
-                                        console.log(object[i])
+
                                         var measureDiv = $('<div/>');
                                         var drinkMeasure = $('<p/>');
                                         drinkMeasure.text(object[i]);
@@ -101,16 +113,6 @@ var fetchDrinks = function () {
 
                         drinkContainer.append(drinkCard);
                         $('.drinkSection').append(drinkContainer);
-
-                        // console.log(data);
-                        // console.log(data.drinks[0].strInstructions);
-
-                        // for(i = 1; i < data.drinks[0].strIngredient.length; i++)
-                        // console.log(data.drinks[0].strIngredient1);
-                        // console.log(data.drinks[0].strIngredient2);
-                        // console.log(data.drinks[0].strIngredient3);
-                        // console.log(data.drinks[0].strIngredient4);
-                        // })
                     })
 
             })
@@ -119,10 +121,8 @@ var fetchDrinks = function () {
         .catch(function (err) {
             console.log(err);
         })
-    // return response.json();
-}
 
-// loads results when button is clicked
+}
 
 function init() {
     fetchDrinks();
@@ -130,14 +130,16 @@ function init() {
 
 init();
 
-function ingredientsApi(id, target) {
-    //$(target).parent
-}
 
+// ($(element.target).attr('class').includes('getDictionary')) 
+
+
+
+// loads results when button is clicked
 $('.drinkSection').on('click', function (element) {
     if ($(element.target).attr('class').includes('getIngredients')) {
         var drinkId = $(element.target).data('value').id;
-        console.log(drinkId);
+
         // ingredientsApi(drinkId);
         fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`)
             .then(function (res) {
@@ -145,30 +147,10 @@ $('.drinkSection').on('click', function (element) {
             })
             .then(function (data) {
 
-                console.log(data);
-                // console.log(data.drinks[0].strInstructions);
-
-                // for(i = 1; i < data.drinks[0].strIngredient.length; i++)
-                // console.log(data.drinks[0].strIngredient1);
-                // console.log(data.drinks[0].strIngredient2);
-                // console.log(data.drinks[0].strIngredient3);
-                // console.log(data.drinks[0].strIngredient4);
-                // })
             })
 
-        //strIngredient
-        //strInstructions
-        //strMeasure
-    }
-    else if ($(element.target).attr('class').includes('getDictionary')) {
-
-        // dictionaryApi(word);
     }
 })
-
-
-
-
 
 // click event for home button
 var homeBtnEl = $('#homeBtn');
