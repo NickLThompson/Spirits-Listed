@@ -43,7 +43,7 @@ var fetchDrinks = function () {
 
                 // drink title
                 var titleDiv = $('<div/>');
-                titleDiv.addClass('col mx-auto my-start')
+                titleDiv.addClass('col mx-auto justify-content-center')
                 var drinkTitle = $('<h2/>');
                 drinkTitle.text(drink.strDrink);
 
@@ -69,6 +69,7 @@ var fetchDrinks = function () {
                                         function wordsAPI(wordToDefine) {
                                             var drinkIngredients = $('<p/>');
                                             drinkIngredients.text(wordToDefine);
+                                            drinkIngredients.addClass('float-end order-2 p-2')
                                             titleDiv.append(drinkIngredients);
                                             
                                             // sending indgrdients to be defined in dictionary 
@@ -104,9 +105,11 @@ var fetchDrinks = function () {
                                     if (i.includes('strMeasure')) {
 
                                         var measureDiv = $('<div/>');
+                                        measureDiv.addClass('mx-auto');
                                         var drinkMeasure = $('<p/>');
                                         drinkMeasure.text(object[i]);
-                                        measureDiv.append(drinkMeasure);
+                                        drinkMeasure.addClass('float-start order-1 p-2');
+                                        titleDiv.append(drinkMeasure);
                                         drinkBody.append(measureDiv);
 
                                     }
@@ -114,6 +117,7 @@ var fetchDrinks = function () {
                             }
                         }
 
+                        
                         measureDiv.append(object.strInstructions);
 
                         drinkCard.append(imgDiv);
