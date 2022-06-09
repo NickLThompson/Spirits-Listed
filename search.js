@@ -46,13 +46,13 @@ var fetchDrinks = function () {
                 titleDiv.addClass('col mx-auto my-start')
                 var drinkTitle = $('<h2/>');
                 drinkTitle.text(drink.strDrink);
-                
 
                 fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drink.idDrink}`)
                     .then(function (res) {
                         return res.json();
                     })
                     .then(function (data) {
+
                         drinkBody.append(titleDiv);
                         titleDiv.append(drinkTitle);
                         var object = data.drinks[0]
@@ -96,6 +96,7 @@ var fetchDrinks = function () {
 
                         drinkCard.append(imgDiv);
                         imgDiv.append(drinkImg);
+                  
                         drinkCard.append(drinkBody);
 
                         drinkContainer.append(drinkCard);
