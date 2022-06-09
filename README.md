@@ -31,10 +31,8 @@ and choose a mixed drink you think would taste the greatest! The website
 has more than enough options to satisfy anything you're craving.
 
 ## Visuals
-![Visuals] ()
-![Visuals] ()
-![Visuals] ()
-![Visuals] ()
+![Visuals] (https://gyazo.com/d256fe8bf7ec4edf15cdfe715dd1071f.png)
+![Visuals] (https://gyazo.com/0725dc4e71a8abdf62f38de383d032c9.png)
 
 ## Resources
 
